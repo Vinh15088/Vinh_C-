@@ -5,7 +5,7 @@ ll	L, R;
 int	Dem(ll l, ll r)
 {
 	int	S = sqrt(l);
-		while (pow(S, 2) < l) ++S;
+		while (pow(S, 2) < l) S++;
 	int	E = sqrt(r);
 		return (E - S + 1);
 }

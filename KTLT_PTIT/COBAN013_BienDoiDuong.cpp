@@ -1,32 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool ktra(int n, int a[1005]){
-    for(int i=0; i<n; i++){
-        if(a[i] == 0) return 1;
-    }
-    return 0;
-}
-void check(int n, int a[1005]){
-    int count = 0;
-    for(int i=0; i<n; i++){
-        if(a[i] < 0) count ++;
-    }
-   if(ktra(n,a)) cout << "-1" << endl;
-   else {
-        if(count == 0) cout << "0" << endl;
-        else cout << "1" << endl;
-   }
-
-}
 int main(){
     int t; cin >> t;
     while(t--){
-        int n; cin >> n;
-        int a[1005];
-        for(int i=0; i<n; i++){
+        int n, a[10001]; cin >> n;
+        int zero = 0, positive = 0, negative = 0;
+        for(int i=1; i<=n; i++){
             cin >> a[i];
+            if(a[i] == 0) zero++;
+            if(a[i] > 0) positive++;
+            else negative++;
         }
-        check(n,a);
+        if(zero != 0) cout << "-1" << endl;
+        else cout << min(positive,negative) << endl;
     }
     return 0;
 }
