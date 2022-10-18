@@ -1,10 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-long long Check(long long n){
-    long long k = sqrt(n);
+#define ll unsigned long long
+ll Check(ll n){
+    ll k = sqrt(n);
     if(k != sqrt(n)) return 0;
     while(n>0){
-        int m = n%10;
+        ll m = n%10;
         if(m!=0 && m!=1 && m!=4 && m!=9) return 0;
         n /= 10;
     }
@@ -12,14 +13,15 @@ long long Check(long long n){
 }
 
 int main(){
-    int t;
-    cin >> t;
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t; cin >> t;
     while(t--){
-        long long n;
-        cin >> n;
+        ll n; cin >> n;
         if(n==1) cout << 0 << endl;
         else {
-            for(long long i=pow(10, n-1); ; i++){
+            for(ll i=pow(10, n-1); ; i++){
                 if(Check(i)) {
                     cout << i << endl;
                     break;

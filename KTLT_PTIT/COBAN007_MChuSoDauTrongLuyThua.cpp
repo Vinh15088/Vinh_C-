@@ -1,33 +1,31 @@
 #include<bits/stdc++.h>
-#define ll long long
-#define FOR(i,r,l) for(int i=r; i<=l; i++)
-#define DOWN(i,r,l) for(int i=r; i>=l; i--)
-#define IN(x) x=stoi(x)
-#define ST(x) string x = to_string(x)
+#define ll unsigned long long
 using namespace std;
-string multi(string a, string b, int m){
-	int A= a.size(), B= b.size(); 
-	vector<int> v(A + B + 1);
-
-	FOR(i, 1, A)
-	FOR(j, 1, B)
-		v[i+j] += (int) (a[i-1]) * (int) (b[j-1]);
-	DOWN(i, A+B, 2){
-		v[i-1] += v[i] / 10;
-		v[i] %= 10; 
-	}		
-	
-	string c= (v[1]==0 ? "" :  (string) (v[1]));
-	FOR(i, 2, m) c += (char)(v[i]);	
-	return c;
+ll check(ll a, ll b, ll c){
+	ll result = 1;
+	while(b){
+		if(b%2==0){ // x&1 == x%2
+			result = (result * a) % c;
+		}
+		a = (a*a) % c;
+		b >>= 1; // >>= == /=
+	}
+	return result;
+}
+void solve(){
+	ll a, b, m;
+	cin >> a >> b >> m;
+	ll result;
+	double y = (double) b * log10(a*1.0);
+	y = y - (ll)y;
+	double temp = pow(10.0, y);
+	result = temp * (1ll) * pow(10, m-1);
+	cout << result << endl;
 }
 int main(){
-    int t; cin >> t;
-    while(t--){
-        string a, b;
-        int m;
-        cin >> a >> b >> m;
-        cout << multi(a,b,m) << endl;
-    }
-    return 0;
+	int t; cin >> t;
+	while(t--){
+		solve();
+	}
+	return 0;
 }
