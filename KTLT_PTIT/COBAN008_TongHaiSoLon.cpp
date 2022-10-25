@@ -1,8 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    int t; 
-    cin >> t;
+    int t; cin >> t;
     while(t--){
         string a, b, answer;
         int nho=0, result=0;
