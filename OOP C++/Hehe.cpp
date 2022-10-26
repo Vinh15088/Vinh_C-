@@ -1,30 +1,22 @@
 #include <iostream>
-using namespace std;
-float ma_tran[100][100] ;
-int so_cot,so_hang;
-int main(){
+#include <string>
+#include <fstream>  // (1)
 
-    cout<<"nhap so cot: ";
-    cin>>so_cot;
-    cout<<"nhap so hang: ";
-    cin>>so_hang;
-    for(int i = 0;i<so_hang;i++){
-        cout<<"nhap hang thu"<<i+1<<endl;
-        for(int j=0;j<so_cot;j++){
-            cin>>ma_tran[i][j];
-        }
+using namespace std;
+
+int main()
+{
+	fstream f;                    // (2)
+	f.open("input.txt", ios::in); // (2)
+
+	string data;                  // (3)
+    string line;
+	while(!f.eof()){  // f.eof() kiem tra xem da ket thuc file chua
+        getline(f,line);
+        data += line;
     }
-    // can nhap cot can tim
-    int a;
-    float max;
-    cout<<"ban can tim so lon nhat cua cot: ";
-    cin>>a;
-    max = ma_tran[0][a-1];
-    for(int i=1;i<so_hang;i++){
-        if(max<ma_tran[i][a-1]){
-            max=ma_tran[i][a-1];
-        }
-    }
-    cout<<"so lon nhat la: "<<max;
-    return 0;
+
+	f.close();                    // (4)
+
+	cout << data;
 }
