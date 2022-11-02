@@ -1,50 +1,43 @@
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
+int N, X[100], cot[100], d1[100], d2[100];
+int a[100][100], count = 0;
 
-int N = 1;
-vector <int> x;
-vector<vector<int>> a;
-vector <bool> c1;
-vector <bool> c2;
-vector <bool> c;
-
-bool check(int i, int j) {
-    if (c[j] == false || c1[i - j + N - 1] == false || c2[i + j - 2] ==  false)
-        return false;
-    return true;
-}
-
-void NQueen(int i) {
-    for (int j = 1; j <= N; j++)
-        if (check(i, j)) {
-            x[i] = j;
-            c[j] = c1[i - j + N - 1] = c2[i + j - 2] = false;
-            if (i == N)
-                a.push_back(x);
-            else
-                NQueen(i + 1);
-            c[j] = c1[i - j + N - 1] = c2[i + j - 2] = true;
-        }
-}
-
-int main() {
-    cout << "N = ";
-    cin >> N;
-    x.resize(N + 1);
-    c.resize(N + 1, true);
-    c1.resize(2 * N - 1, true);
-    c2.resize(2 * N - 1, true);
-    NQueen(1);
-    cout << a.size() << endl << endl;
-    for (int k = 0; k < a.size(); k++) {
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N; j++) {
-                cout << (j == a[k][i]) << " ";
-                if (j % N == 0)
-                    cout << endl;
-            }
+void InResult(){
+    memset(a, 0, sizeof(a));
+    for(int i=1; i<=N; i++){
+        a[i][X[i]] = 1;
+    }
+    for(int i=1; i<=N; i++){
+        for(int j=1; j<=N; j++){
+            cout << a[i][j];
         }
         cout << endl;
     }
+    cout << endl;
+}
+
+void Try(int i){
+    // Duyet cac kha nang ma X[i] co the nhan duoc
+    for(int j=1; j<=N; j++){
+        // chuan bi gan X[i] = j
+        if(cot[j] == 1 && d1[i-j+N] == 1 && d2[i+j-1] == 1){
+            X[i] = j;
+            cot[j] = d1[i-j+N] = d2[i+j-1] = 0;
+            if(i==N)  count ++;//InResult();
+            else Try(i+1);
+            cot[j] = d1[i-j+N] = d2[i+j-1] = 1;
+        }
+    }
+}
+
+int main(){
+    cin >> N;
+    for(int i=1; i<=99; i++){
+        cot[i] = d1[i] = d2[i] = 1;
+    }
+    Try(1);
+    // neu muon In ra so cau hinh
+    cout << count << endl;
+    return 0;
 }

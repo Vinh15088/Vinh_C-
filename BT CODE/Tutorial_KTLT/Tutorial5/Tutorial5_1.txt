@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+#include <fstream>
+using namespace std;
+int main()
+{
+	ifstream input("Tutorial5_1.cpp");  
+	fstream output;
+	output.open("Tutorial5_1.txt", ios::out ); // mở file xuất
+	string line;
+    while(!input.eof()){
+        getline(input, line);
+        output << line;
+        output << endl;
+    }
+	input.close(); //đóng file input
+	output.close(); //đóng file output
+	return 0;
+}
