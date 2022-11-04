@@ -1,14 +1,26 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
-bool check(ll n){
-    if(n<2) return 0;
-    if(n==2 || n==3) return 1;
-    if(n%2==0 || n%3==0) return 0;
-    for(ll i=3; i<=sqrt(n); i+=2)
-        if(n%i==0) return 0;
-    return 1;
+
+void PrimeFactors(int n){
+    while(n%2==0){
+        cout << 2 << " ";
+        n /= 2;
+    }
+    for(int i=3; i<= sqrt(n); i+=2){
+        while(n%i==0){
+            cout << i << " ";
+            n /= i;
+        }
+    }
+    if(n>2) cout << n << " ";
 }
-void solve(ll n){
-    
+
+int main(){
+    int t; cin >> t;
+    while(t--){
+        int n; cin >> n;
+        PrimeFactors(n);
+    }
+    return 0;
 }
