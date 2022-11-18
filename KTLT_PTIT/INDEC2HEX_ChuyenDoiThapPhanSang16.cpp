@@ -2,9 +2,9 @@
 #define ll long long
 using namespace std;
 ll m;
-int gt(int n){
-    int res = 1;
-    for(int i=0; i<n; i++){
+int gt(ll n){
+    ll res = 1;
+    for(ll i=0; i<n; i++){
         res *= 2;
     }
     return res;
@@ -23,14 +23,14 @@ int main(){
     while(t--){
         cin >> m;
         string s=thapsangnhi();
-        int n=s.size();
-        int mod = n%4;
+        ll n=s.size();
+        ll mod = n%4;
         if(mod > 0) s = string(4-mod,'0') + s;
         reverse(s.begin(), s.end());
         string result = "";
-        for(int i=0; i<n; i+=4){
-            int res = 0;
-            for(int j=i; j<i+4; j++){
+        for(ll i=0; i<n; i+=4){
+            ll res = 0;
+            for(ll j=i; j<i+4; j++){
                 if(s[j] == '1') res += gt(j-i);
             }
             if(res<10) result = char(res + 48) + result;
