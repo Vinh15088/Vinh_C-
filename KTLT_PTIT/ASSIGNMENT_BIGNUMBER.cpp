@@ -4,18 +4,20 @@ using namespace std;
 
 int main(){
     ifstream fileIn;
-    fileIn.open("bignumber.in.txt", ios_base::in);
+    ofstream fileOut;
+    fileIn.open("bignumber.in", ios_base::in);
     int t;
-    fileIn.t;
+    fileIn >> t;
     while(t--){
-        fileIn.a;
-        fileIn.b;
-        fileIn.c;
-        fileIn.d;
-        ofstream fileOut;
+        int a, b, c, d;
+        fileIn >> a;
+        fileIn >> b;
+        fileIn >> c;
+        fileIn >> d;
+        
         fileOut.open("bignumber.out", ios_base::out);
-        cout << a+b << endl;
-        cout << c*d << endl;
+        fileOut << a+b << endl;
+        fileOut << c*d << endl;
     }
 
     fileOut.close();

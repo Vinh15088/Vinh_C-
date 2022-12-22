@@ -22,6 +22,6 @@ int main(){
 			res+=tmp;
 			res%=Mod;
 		}
-		cout<<res<<endl;
+		cout << res << endl;
 	}
 }

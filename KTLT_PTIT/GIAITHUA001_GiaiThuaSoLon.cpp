@@ -3,15 +3,9 @@ using namespace std;
 #define MOD 10000
 void hienthi(int S[], int count){
 	for(int i = count - 1; i >= 0; i--){	
-		if(i < count - 1 && MOD > 10 && S[i] < 1000){
-			cout << "0";
-		}
-		if(i < count - 1 && MOD > 10 && S[i] < 100){
-			cout << "0";
-		}
-		if(i < count - 1 && MOD > 10 && S[i] < 10){
-			cout << "0";
-		}
+		if(i < count - 1 && MOD > 10 && S[i] < 1000)  cout << "0";
+		if(i < count - 1 && MOD > 10 && S[i] < 100)  cout << "0";
+		if(i < count - 1 && MOD > 10 && S[i] < 10)  cout << "0";
 		cout << S[i];
 	}
 	cout << endl;

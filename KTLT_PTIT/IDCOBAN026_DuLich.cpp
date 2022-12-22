@@ -15,9 +15,7 @@ unordered_map< vector<bool>, int> F[N];
 
 int f(int u, int cnt){
 	if (cnt==n+1) return 0;
-	
 	if (F[u].count(visited)) return F[u][visited];
-	
 	int r= oo;
 	for(auto p:a[u]){
 		int v= p.X, c= p.Y;

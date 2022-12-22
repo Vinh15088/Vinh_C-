@@ -19,14 +19,14 @@ void check(int a[105][105], int n, int m){
 int main(){
     int t; cin >> t;
     while(t--){
-        int n, m; cin >> n >> m;
+        int n, m; cin >> n;
         int a[105][105];
         for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
+            for(int j=0; j<n; j++){
                 cin >> a[i][j];
             }
         }
-        check(a,n,m);
+        check(a,n,n);
     }
     return 0;
 }
