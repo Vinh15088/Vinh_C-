@@ -13,7 +13,6 @@ int main(){
         a[15]=a[16]=90000000, a[17]=a[18]=900000000;
         cin >> n;
         cout << a[n] << endl;
-        
     }
     return 0;
 }

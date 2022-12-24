@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 int t, n, k, x, y, a[20][20];
 int l[] = {-2, -2, -1, -1, 1, 1, 2, 2};
 int r[] = {-1, 1, -2, 2, -2, 2, -1, 1};
